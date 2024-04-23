@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, fireDB } from "../../firebase/FirebaseConfig";
 import Loader from "../../components/loader/Loader";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
+import Layout from "../../components/layout/Layout";
 
 const Login = () => {
     const context = useContext(myContext);
@@ -21,13 +22,12 @@ const Login = () => {
         password: ""
     });
 
-    /**========================================================================
-     *                          User Login Function 
-    *========================================================================**/
+    
 
     const userLoginFunction = async () => {
         // validation 
         if (userLogin.email === "" || userLogin.password === "") {
+            toast.dismiss();
             toast.error("All Fields are required")
         }
 
@@ -49,12 +49,13 @@ const Login = () => {
                         email: "",
                         password: ""
                     })
+
+                    toast.dismiss();
                     toast.success("Login Successfully");
                     setLoading(false);
-                   
                     navigate('/');
                 });
-                return () => data;
+                
             } catch (error) {
                 console.log(error);
                 setLoading(false);
@@ -62,19 +63,21 @@ const Login = () => {
         } catch (error) {
             console.log(error);
             setLoading(false);
-            toast.error("Login Failed");
+            toast.dismiss()
+            toast.error("Login Failed" + error.message);
         }
 
     }
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <Layout>
+            <div className='flex justify-center items-center h-screen'>
             {loading && <Loader />}
             {/* Login Form  */}
-            <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
+            <div className="login_Form  px-8 py-6 border border-black-100 rounded-xl shadow-md">
 
                 {/* Top Heading  */}
                 <div className="mb-5">
-                    <h2 className='text-center text-2xl font-bold text-pink-500 '>
+                    <h2 className='text-center text-2xl font-bold text-black-500 '>
                         Login
                     </h2>
                 </div>
@@ -92,7 +95,7 @@ const Login = () => {
                                 email: e.target.value
                             })
                         }}
-                        className='bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
                     />
                 </div>
 
@@ -108,7 +111,7 @@ const Login = () => {
                                 password: e.target.value
                             })
                         }}
-                        className='bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
                     />
                 </div>
 
@@ -129,6 +132,7 @@ const Login = () => {
 
             </div>
         </div>
+        </Layout>
     );
 }
 

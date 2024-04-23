@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import BuyNowModal from "../../components/buyNowModal/BuyNowModal";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const CartPage = () => {
     const navigate = useNavigate()
@@ -16,7 +16,10 @@ const CartPage = () => {
 
     const deleteCart = (item) => {
         dispatch(deleteFromCart(item));
-        toast.success("Delete cart")
+        toast.dismiss();
+        toast.success("Delete cart", {
+            position: "top-right"
+          })
     }
 
     const handleIncrement = (id) => {
@@ -29,7 +32,10 @@ const CartPage = () => {
 
     const deleteCartALL = (item) => {
         dispatch(deleteAllCart());
-        toast.success("Delete cart")
+        toast.dismiss();
+        toast.success("Delete cart", {
+            position: "top-right"
+          })
     }
 
     // const cartQuantity = cartItems.length;
@@ -66,7 +72,10 @@ const CartPage = () => {
     const buyNowFunction = () => {
         // validation 
         if (addressInfo.name === "" || addressInfo.address === "" || addressInfo.pincode === "" || addressInfo.mobileNumber === "") {
-            return toast.error("All Fields are required")
+            toast.dismiss();
+            return toast.error("All Fields are required", {
+                position: "top-right"
+              })
         }
 
         // Order Info 
@@ -100,7 +109,10 @@ const CartPage = () => {
             localStorage.removeItem('cart');
 
             navigate(`/`)
-            toast.success("Order Placed Successfull")
+            toast.dismiss();
+            toast.success("Order Placed Successfull", {
+                position: "top-right"
+              })
             
         } catch (error) {
             console.log(error)

@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import { useNavigate } from "react-router";
 import Loader from "../../components/loader/Loader";
+import Layout from "../../components/layout/Layout";
 
 const categoryList = [
     {
@@ -63,33 +64,43 @@ const AddProductPage = () => {
     // Add Product Function
     const addProductFunction = async () => {
         if (product.title == "" || product.price == "" || product.productImageUrl == "" || product.category == "" || product.description == "") {
-            return toast.error("all fields are required")
+            toast.dismiss();
+            return toast.error("all fields are required", {
+                position: "top-right"
+              })
         }
 
         setLoading(true);
         try {
             const productRef = collection(fireDB, 'products');
             await addDoc(productRef, product)
-            toast.success("Add product successfully");
+            toast.dismiss();
+            toast.success("Add product successfully", {
+                position: "top-right"
+              });
             navigate('/admin-dashboard')
             setLoading(false)
         } catch (error) {
             console.log(error);
             setLoading(false)
-            toast.error("Add product failed");
+            toast.dismiss();
+            toast.error("Add product failed", {
+                position: "top-right"
+              });
         }
 
     }
     return (
-        <div>
+        <Layout>
+            <div>
             <div className='flex justify-center items-center h-screen'>
                 {loading && <Loader />}
                 {/* Login Form  */}
-                <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
+                <div className="login_Form  px-8 py-6 border rounded-xl shadow-lg ">
 
                     {/* Top Heading  */}
                     <div className="mb-5">
-                        <h2 className='text-center text-2xl font-bold text-pink-500 '>
+                        <h2 className='text-center text-2xl font-bold  '>
                             Add Product
                         </h2>
                     </div>
@@ -107,7 +118,7 @@ const AddProductPage = () => {
                                 })
                             }}
                             placeholder='Product Title'
-                            className='bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300'
+                            className=' border  border-black     px-2 py-2 w-96 rounded-md outline-none placeholder-red-300'
                         />
                     </div>
 
@@ -124,7 +135,7 @@ const AddProductPage = () => {
                                 })
                             }}
                             placeholder='Product Price'
-                            className='bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300'
+                            className=' border  border-black     px-2 py-2 w-96 rounded-md outline-none placeholder-red-300'
                         />
                     </div>
 
@@ -141,7 +152,7 @@ const AddProductPage = () => {
                                 })
                             }}
                             placeholder='Product Image Url'
-                            className='bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300'
+                            className=' border  border-black     px-2 py-2 w-96 rounded-md outline-none placeholder-red-300'
                         />
                     </div>
 
@@ -155,7 +166,7 @@ const AddProductPage = () => {
                                     category: e.target.value
                                 })
                             }}
-                            className="w-full px-1 py-2 text-pink-300 bg-pink-50 border border-pink-200 rounded-md outline-none  ">
+                            className="w-full px-1 py-2 text-red-300  border border-black rounded-md outline-none  ">
                             <option disabled>Select Product Category</option>
                             {categoryList.map((value, index) => {
                                 const { name } = value
@@ -175,7 +186,7 @@ const AddProductPage = () => {
                                     ...product,
                                     description: e.target.value
                                 })
-                            }} name="description" placeholder="Product Description" rows="5" className=" w-full px-2 py-1 text-pink-300 bg-pink-50 border border-pink-200 rounded-md outline-none placeholder-pink-300 ">
+                            }} name="description" placeholder="Product Description" rows="5" className=" w-full px-2 py-1  text-red-300  border border-black rounded-md outline-none placeholder-red-300 ">
 
                         </textarea>
                     </div>
@@ -185,7 +196,7 @@ const AddProductPage = () => {
                         <button
                             onClick={addProductFunction}
                             type='button'
-                            className='bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md '
+                            className='bg-red-500 hover:bg-red-600 w-full text-white text-center py-2 font-bold rounded-md '
                         >
                             Add Product
                         </button>
@@ -193,6 +204,7 @@ const AddProductPage = () => {
                 </div>
             </div>
         </div>
+        </Layout>
     );
 }
 

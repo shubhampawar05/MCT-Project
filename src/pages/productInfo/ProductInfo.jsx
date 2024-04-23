@@ -40,12 +40,18 @@ const ProductInfo = () => {
     const addCart = (item) => {
         // console.log(item)
         dispatch(addToCart(item));
-        toast.success("Add to cart")
+        toast.dismiss();
+        toast.success("Add to cart" , {
+            position: "top-right"
+          })
     }
 
     const deleteCart = (item) => {
         dispatch(deleteFromCart(item));
-        toast.success("Delete cart")
+        toast.dismiss();
+        toast.success("Delete cart", {
+            position: "top-right"
+          })
     }
 
     // console.log(cartItems)
@@ -78,7 +84,7 @@ const ProductInfo = () => {
                                     <div className="">
                                         <div className="">
                                             <img
-                                                className=" w-full lg:h-[39em] rounded-lg"
+                                                className=" w-full lg:h-[30em] rounded-lg object-contain"
                                                 src={product?.productImageUrl}
                                                 alt=""
                                             />
@@ -168,14 +174,14 @@ const ProductInfo = () => {
                                                 ?
                                                 <button
                                                     onClick={() => deleteCart(product)}
-                                                    className="w-full px-4 py-3 text-center text-white bg-red-500 border border--600  hover:bg-red-600 hover:text-gray-100  rounded-xl"
+                                                    className="w-full px-4 py-3 text-center font-bold text-white bg-red-500 border border--600  hover:bg-red-600 hover:text-gray-100  rounded-xl"
                                                 >
                                                     Delete to cart
                                                 </button>
                                                 :
                                                 <button
                                                     onClick={() => addCart(product)}
-                                                    className="w-full px-4 py-3 text-center text-pink-600 bg-pink-100 border border-pink-600  hover:bg-pink-600 hover:text-gray-100  rounded-xl"
+                                                    className="w-full px-4 py-3 text-center font-bold  text-red-600  shadow-lg border   hover:bg-red-400 hover:text-gray-100   rounded-xl"
                                                 >
                                                     Add to cart
                                                 </button>
