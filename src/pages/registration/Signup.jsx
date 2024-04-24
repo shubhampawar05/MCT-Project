@@ -112,7 +112,7 @@ const Signup = () => {
                                 name: e.target.value
                             })
                         }}
-                        className=' border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' border  px-2 py-2 w-96 rounded-md outline-none '
                     />
                 </div>
 
@@ -128,7 +128,7 @@ const Signup = () => {
                                 email: e.target.value
                             })
                         }}
-                        className=' border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' border  px-2 py-2 w-96 rounded-md outline-none '
                     />
                 </div>
 
@@ -144,7 +144,7 @@ const Signup = () => {
                                 password: e.target.value
                             })
                         }}
-                        className=' border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' border  px-2 py-2 w-96 rounded-md outline-none '
                     />
                 </div>
 
@@ -153,14 +153,14 @@ const Signup = () => {
                     <button
                         type='button'
                         onClick={userSignupFunction}
-                        className='bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md '
+                        className='bg-red-500 hover:bg-red-600 w-full text-white text-center py-2 font-bold rounded-md '
                     >
                         Signup
                     </button>
                 </div>
 
                 <div>
-                    <h2 className='text-black'>Have an account ? <Link className=' text-pink-500 font-bold ' to={'/login'}>Login</Link></h2>
+                    <h2 className='text-black'>Have an account ? <Link className=' text-red-500 font-bold ' to={'/login'}>Login</Link></h2>
                 </div>
 
             </div>

@@ -95,7 +95,7 @@ const Login = () => {
                                 email: e.target.value
                             })
                         }}
-                        className=' border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' border  px-2 py-2 w-96 rounded-md outline-none '
                     />
                 </div>
 
@@ -111,7 +111,7 @@ const Login = () => {
                                 password: e.target.value
                             })
                         }}
-                        className=' border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' border  px-2 py-2 w-96 rounded-md outline-none '
                     />
                 </div>
 
@@ -120,14 +120,14 @@ const Login = () => {
                     <button
                         type='button'
                         onClick={userLoginFunction}
-                        className='bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md '
+                        className='bg-red-500 hover:bg-red-600 w-full text-white text-center py-2 font-bold rounded-md '
                     >
                         Login
                     </button>
                 </div>
 
                 <div>
-                    <h2 className='text-black'>Don't Have an account <Link className=' text-pink-500 font-bold' to={'/signup'}>Signup</Link></h2>
+                    <h2 className='text-black'>Don't Have an account <Link className=' text-red-500 font-bold' to={'/signup'}>Signup</Link></h2>
                 </div>
 
             </div>

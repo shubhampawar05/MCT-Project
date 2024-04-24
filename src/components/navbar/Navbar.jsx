@@ -29,7 +29,7 @@ const Navbar = () => {
         <ul className=" relative flex md:space-x-7  space-x-2 font-bold text-md md:px-5 px-1 ">
             {/* Home */}
             <li >
-                <Link to={'/'} className={`${pathname === '/' ? 'w-10 h-1 border-b-2 border-red-400 rounded-md p-1 text-red-500 shadow-lg shadow-lg':''}`}>Home</Link>
+                <Link to={'/'} className={`${pathname === '/' ? 'w-10 h-1 border-b-2 border-red-400 rounded-md p-1 text-red-500 shadow-lg':''}`}>Home</Link>
                 
             </li>
 
