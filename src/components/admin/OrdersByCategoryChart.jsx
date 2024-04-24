@@ -53,7 +53,7 @@ const OrdersByCategoryChart = () => {
     });
   }, [ordersByCategory]);
 
-  return <canvas ref={ordersByCategoryChartRef} width="400" height="200"></canvas>;
+  return <canvas ref={ordersByCategoryChartRef} width="200" height="100"></canvas>;
 };
 
 export default OrdersByCategoryChart;

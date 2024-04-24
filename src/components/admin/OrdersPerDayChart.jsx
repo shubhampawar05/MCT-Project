@@ -53,7 +53,7 @@ const OrdersPerDayChart = () => {
     });
   }, [ordersPerDay]);
 
-  return <canvas ref={ordersPerDayChartRef} width="400" height="200"></canvas>;
+  return <canvas ref={ordersPerDayChartRef} width="200" height="100"></canvas>;
 };
 
 export default OrdersPerDayChart;
