@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import MyContext from './myContext';
 import { collection, deleteDoc, doc, onSnapshot, orderBy, query } from 'firebase/firestore';
@@ -12,9 +11,7 @@ function MyState({ children }) {
     // User State
     const [getAllProduct, setGetAllProduct] = useState([]);
 
-    /**========================================================================
-     *                          GET All Product Function
-     *========================================================================**/
+//    get all product fun
 
     const getAllProductFunction = async () => {
         setLoading(true);
@@ -43,9 +40,7 @@ function MyState({ children }) {
     const [getAllOrder, setGetAllOrder] = useState([]);
 
 
-    /**========================================================================
-     *                           GET All Order Function
-     *========================================================================**/
+    // get all order func
 
     const getAllOrderFunction = async () => {
         setLoading(true);
@@ -89,9 +84,7 @@ function MyState({ children }) {
     const [getAllUser, setGetAllUser] = useState([]);
 
 
-    /**========================================================================
-     *                           GET All User Function
-     *========================================================================**/
+// get all user func
 
     const getAllUserFunction = async () => {
         setLoading(true);

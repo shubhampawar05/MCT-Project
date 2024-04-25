@@ -91,7 +91,7 @@ const Signup = () => {
           <div className='flex justify-center items-center h-screen'>
             {loading && <Loader/>}
           
-            <div className="login_Form  px-8 py-6 border border-black-100 rounded-xl shadow-md">
+            <div className="login_Form  sm:px-8 sm:py-6 px-2 py-2 border border-black-100 rounded-xl shadow-md">
 
                 {/* Top Heading  */}
                 <div className="mb-5">
@@ -112,7 +112,7 @@ const Signup = () => {
                                 name: e.target.value
                             })
                         }}
-                        className=' border  px-2 py-2 w-96 rounded-md outline-none '
+                        className=' border  px-2 py-2 sm:w-96 w-64 rounded-md outline-none '
                     />
                 </div>
 
@@ -128,7 +128,7 @@ const Signup = () => {
                                 email: e.target.value
                             })
                         }}
-                        className=' border  px-2 py-2 w-96 rounded-md outline-none '
+                        className=' border  px-2 py-2 sm:w-96 w-64 rounded-md outline-none '
                     />
                 </div>
 
@@ -144,7 +144,7 @@ const Signup = () => {
                                 password: e.target.value
                             })
                         }}
-                        className=' border  px-2 py-2 w-96 rounded-md outline-none '
+                        className=' border  px-2 py-2 sm:w-96 w-64 rounded-md outline-none '
                     />
                 </div>
 
