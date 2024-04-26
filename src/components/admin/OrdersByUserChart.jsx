@@ -12,11 +12,11 @@ const OrdersByUserChart = () => {
     const calculateOrdersByUser = () => {
       const tempOrdersByUser = {};
       getAllOrder.forEach((order) => {
-        const userId = order.userid;
-        if (tempOrdersByUser[userId]) {
-          tempOrdersByUser[userId]++;
+        const email = order.email;
+        if (tempOrdersByUser[email]) {
+          tempOrdersByUser[email]++;
         } else {
-          tempOrdersByUser[userId] = 1;
+          tempOrdersByUser[email] = 1;
         }
       });
       setOrdersByUser(tempOrdersByUser);
